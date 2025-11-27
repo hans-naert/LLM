@@ -1,0 +1,7 @@
+FROM ollama/ollama:latest
+
+# Pull Qwen 2.5 14B model during image build
+RUN nohup bash -c "ollama serve &" && \
+    sleep 5 && \
+    ollama pull qwen2.5:14b && \
+    pkill ollama
